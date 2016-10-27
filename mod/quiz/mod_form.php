@@ -663,4 +663,11 @@ class mod_quiz_mod_form extends moodleform_mod {
 
         return $this->maxattemptsanyoverride;
     }
+
+    public function set_data($default_values) {
+        if ($default_values->completionpass == '0') {
+            $default_values->completionattemptsexhausted = '0';
+        }
+        parent::set_data($default_values);
+    }
 }
